@@ -14,6 +14,7 @@ class AuctionCommand extends Command {
     private AuctionManager $auctionManager;
 
     public function __construct(AuctionManager $auctionManager) {
+        $this->setPermission("auctionshouse.command.auction");
         parent::__construct("auction", "Access the Auction House or submit items", "/auction [submit]", ["ah"]);
         $this->auctionManager = $auctionManager;
     }
