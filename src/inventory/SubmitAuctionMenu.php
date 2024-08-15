@@ -4,6 +4,7 @@ namespace Dzheyden8561\AuctionsHouse\inventory;
 
 use Dzheyden8561\AuctionsHouse\AuctionManager;
 use muqsit\invmenu\InvMenu;
+use muqsit\invmenu\transaction\InvMenuTransaction;
 use muqsit\invmenu\type\InvMenuTypeIds;
 use pocketmine\player\Player;
 use pocketmine\utils\TextFormat;
@@ -20,8 +21,8 @@ class SubmitAuctionMenu {
         $menu = InvMenu::create(InvMenuTypeIds::TYPE_CHEST);
         $menu->setName("Submit Item for Auction");
 
-        $menu->setListener(function($itemClicked) use ($menu, $player) {
-            $item = $itemClicked->getItem();
+        $menu->setListener(function(InvMenuTransaction $itemClicked) use ($menu, $player) {
+            $item = $itemClicked->getItemClicked();
 
             if ($item->isNull()) {
                 $player->sendMessage(TextFormat::RED . "You must select a valid item!");
