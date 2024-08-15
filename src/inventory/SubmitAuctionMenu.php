@@ -20,7 +20,7 @@ class SubmitAuctionMenu {
         $menu = InvMenu::create(InvMenuTypeIds::TYPE_CHEST);
         $menu->setName("Submit Item for Auction");
 
-        $menu->setListener(function(Player $player, $itemClicked) use ($menu) {
+        $menu->setListener(function($itemClicked) use ($menu, $player) {
             $item = $itemClicked->getItem();
 
             if ($item->isNull()) {
