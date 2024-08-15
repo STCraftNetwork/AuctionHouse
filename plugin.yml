@@ -7,7 +7,4 @@ src-namespace-prefix: Dzheyden8561\AuctionsHouse
 permissions:
   auctionshouse.command.auction:
     default: true
-dependencies:
-  - InvMenu
-
 ...
