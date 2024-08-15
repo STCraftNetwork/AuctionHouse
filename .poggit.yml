@@ -4,5 +4,8 @@ branches:
 - main
 projects:
   AuctionHouse:
+      libs:
+      - src: muqsit\invmenu
+        version: ^4.6.5
     path: ""
 ...
