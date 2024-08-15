@@ -28,8 +28,7 @@ class AuctionMenu {
         }
 
         $menu->setListener(function(Player $player, $itemClicked) {
-            // Handle bid or buy now actions when an item is clicked.
-            // Can open a BidMenu or handle Buy Now directly.
+            //todo
         });
 
         $menu->send($player);
