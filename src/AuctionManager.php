@@ -2,9 +2,7 @@
 
 namespace Dzheyden8561\AuctionsHouse;
 
-use JsonException;
 use Dzheyden8561\AuctionsHouse\data\Auction;
-use libs\NhanAZ\libBedrock\libBedrockException;
 use pocketmine\item\Item;
 use pocketmine\utils\Config;
 
@@ -13,17 +11,11 @@ class AuctionManager {
     private array $auctions = [];
     private Config $config;
 
-    /**
-     * @throws libBedrockException
-     */
     public function __construct(Config $config) {
         $this->config = $config;
         $this->loadAuctions();
     }
 
-    /**
-     * @throws JsonException
-     */
     public function createAuction(string $seller, Item $item, int $startingBid, ?int $buyNowPrice, int $duration): void {
         $auction = new Auction($seller, $item, $startingBid, $buyNowPrice, $duration);
         $this->auctions[] = $auction;
@@ -48,9 +40,6 @@ class AuctionManager {
         }
     }
 
-    /**
-     * @throws libBedrockException
-     */
     private function loadAuctions(): void {
         $this->auctions = [];
         $data = $this->config->get("auctions", []);
@@ -60,9 +49,6 @@ class AuctionManager {
         }
     }
 
-    /**
-     * @throws JsonException
-     */
     public function saveAuctions(): void {
         $data = [];
         foreach ($this->auctions as $auction) {
