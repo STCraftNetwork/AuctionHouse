@@ -4,7 +4,7 @@ branches:
 - main
 projects:
   AuctionHouse:
-    libs
+    libs:
       - src: muqsit/InvMenu/InvMenu
         version: ^4.6.5
     path: ""
