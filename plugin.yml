@@ -1,0 +1,13 @@
+---
+name: AuctionsHouse
+version: 0.0.1
+main: Dzheyden8561\AuctionsHouse\Main
+api: 5.17.1
+src-namespace-prefix: Dzheyden8561\AuctionsHouse
+permissions:
+  auctionshouse.command.auction:
+    default: true
+dependencies:
+  - InvMenu
+
+...
