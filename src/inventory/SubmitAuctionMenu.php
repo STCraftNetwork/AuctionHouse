@@ -4,6 +4,7 @@ namespace Dzheyden8561\AuctionsHouse\inventory;
 
 use Dzheyden8561\AuctionsHouse\AuctionManager;
 use muqsit\invmenu\InvMenu;
+use muqsit\invmenu\transaction\DeterministicInvMenuTransaction;
 use muqsit\invmenu\transaction\InvMenuTransaction;
 use muqsit\invmenu\transaction\InvMenuTransactionResult;
 use muqsit\invmenu\type\InvMenuTypeIds;
@@ -24,7 +25,7 @@ class SubmitAuctionMenu {
         $menu = InvMenu::create(InvMenuTypeIds::TYPE_CHEST);
         $menu->setName("Submit Item for Auction");
 
-        $menu->setListener(function(InvMenuTransaction $transaction) use ($menu, $player) {
+        $menu->setListener(function(DeterministicInvMenuTransaction $transaction) use ($menu, $player) {
             $itemClicked = $transaction->getItemClicked();
             $action = $transaction->getAction();
 
@@ -32,11 +33,6 @@ class SubmitAuctionMenu {
                 $player->sendMessage(TextFormat::RED . "You must select a valid item!");
                 return;
             }
-
-            if ($action instanceof SlotChangeAction) {
-
-            }
-
 
             $startingBid = 1000;
             $buyNowPrice = 5000;
