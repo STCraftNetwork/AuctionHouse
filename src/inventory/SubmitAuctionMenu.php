@@ -7,6 +7,7 @@ use muqsit\invmenu\InvMenu;
 use muqsit\invmenu\transaction\DeterministicInvMenuTransaction;
 use muqsit\invmenu\transaction\InvMenuTransaction;
 use muqsit\invmenu\transaction\InvMenuTransactionResult;
+use muqsit\invmenu\transaction\SimpleInvMenuTransaction;
 use muqsit\invmenu\type\InvMenuTypeIds;
 use pocketmine\inventory\transaction\action\SlotChangeAction;
 use pocketmine\item\Item;
@@ -25,7 +26,7 @@ class SubmitAuctionMenu {
         $menu = InvMenu::create(InvMenuTypeIds::TYPE_CHEST);
         $menu->setName("Submit Item for Auction");
 
-        $menu->setListener(function(DeterministicInvMenuTransaction $transaction) use ($menu, $player) {
+        $menu->setListener(function(SimpleInvMenuTransaction $transaction) use ($menu, $player) {
             $itemClicked = $transaction->getItemClicked();
             $action = $transaction->getAction();
 
